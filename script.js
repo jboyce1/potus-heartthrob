@@ -5,7 +5,7 @@ const quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const totalQuestions = 2; // Update this to the number of questions you have
+  const totalQuestions = 3; // Update this to the number of questions you have
 
   const scores = {
     fdr: 0,
