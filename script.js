@@ -5,8 +5,6 @@ const quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const totalQuestions = 3; // Update this to the number of questions you have
-
   const scores = {
     fdr: 0,
     jfk: 0,
@@ -14,10 +12,15 @@ quizForm.addEventListener("submit", function(event) {
     teddy: 0
   };
 
-  for (let questionNumber = 1; questionNumber <= totalQuestions; questionNumber++) {
-    const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+  const questionNames = getQuestionNames();
+
+  console.log("Questions found:", questionNames);
+
+  for (const questionName of questionNames) {
+    const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
 
     if (selectedAnswer === null) {
+      const questionNumber = questionName.replace("q", "");
       alert(`Please answer Question ${questionNumber} before submitting.`);
       return;
     }
@@ -43,6 +46,21 @@ quizForm.addEventListener("submit", function(event) {
 
   window.location.href = `${resultPages[winnerKey]}?${scoreParams.toString()}`;
 });
+
+function getQuestionNames() {
+  const allRadioButtons = document.querySelectorAll('input[type="radio"]');
+  const questionSet = new Set();
+
+  allRadioButtons.forEach(function(radioButton) {
+    questionSet.add(radioButton.name);
+  });
+
+  return Array.from(questionSet).sort(function(a, b) {
+    const numberA = Number(a.replace("q", ""));
+    const numberB = Number(b.replace("q", ""));
+    return numberA - numberB;
+  });
+}
 
 function getWinner(scores) {
   let winner = "";
