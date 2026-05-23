@@ -5,7 +5,7 @@ const quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const totalQuestions = 2; //update this to the number of questions you have
+  const totalQuestions = 2; // Update this to the number of questions you have
 
   const scores = {
     fdr: 0,
@@ -27,6 +27,8 @@ quizForm.addEventListener("submit", function(event) {
     scores.lincoln += Number(selectedAnswer.getAttribute("data-lincoln"));
     scores.teddy += Number(selectedAnswer.getAttribute("data-teddy"));
   }
+
+  console.log("Final scores:", scores);
 
   const winnerKey = getWinner(scores);
 
