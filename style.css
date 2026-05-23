@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7e7dc;
+  color: #2b1d17;
+}
+
+header {
+  background: #7b1e1e;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.test-card {
+  background: white;
+  border: 3px solid #7b1e1e;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+button {
+  background: #7b1e1e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a62a2a;
+}
+
+#js-test-output {
+  font-weight: bold;
+  margin-top: 1rem;
+}
