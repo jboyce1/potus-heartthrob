@@ -28,7 +28,9 @@ quizForm.addEventListener("submit", function(event) {
     teddy: "results/teddy.html"
   };
 
-  window.location.href = resultPages[winnerKey];
+  const scoreParams = new URLSearchParams(scores);
+
+  window.location.href = `${resultPages[winnerKey]}?${scoreParams.toString()}`;
 });
 
 function getWinner(scores) {
