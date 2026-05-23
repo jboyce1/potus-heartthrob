@@ -13,71 +13,134 @@
     <p>Find your executive-branch soulmate.</p>
   </header>
 
-  <main>
+ <main>
+  <form id="quiz-form">
+
     <section class="quiz-card">
       <h2>Question 1</h2>
       <p class="question-text">Your ideal first date is...</p>
-      <form id="quiz-form">
-        <label class="answer-card">
-          <input 
-            type="radio" 
-            name="q1"
-            value="fireside"
-            data-fdr="3"
-            data-jfk="1"
-            data-lincoln="1"
-            data-teddy="0"
-          >
-          <span>A cozy fireside conversation where someone makes you feel like everything will be okay.</span>
-        </label>
 
-        <label class="answer-card">
-          <input 
-            type="radio" 
-            name="q1"
-            value="glamour"
-            data-fdr="1"
-            data-jfk="3"
-            data-lincoln="0"
-            data-teddy="1"
-          >
-          <span>A glamorous party where everyone seems suspiciously photogenic.</span>
-        </label>
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q1"
+          value="fireside"
+          data-fdr="3"
+          data-jfk="1"
+          data-lincoln="1"
+          data-teddy="0"
+        >
+        <span>A cozy fireside conversation where someone makes you feel like everything will be okay.</span>
+      </label>
 
-        <label class="answer-card">
-          <input 
-            type="radio" 
-            name="q1"
-            value="haunted"
-            data-fdr="0"
-            data-jfk="0"
-            data-lincoln="3"
-            data-teddy="1"
-          >
-          <span>A long walk with deep conversation and slightly haunted vibes.</span>
-        </label>
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q1"
+          value="glamour"
+          data-fdr="1"
+          data-jfk="3"
+          data-lincoln="0"
+          data-teddy="1"
+        >
+        <span>A glamorous party where everyone seems suspiciously photogenic.</span>
+      </label>
 
-        <label class="answer-card">
-          <input 
-            type="radio" 
-            name="q1"
-            value="adventure"
-            data-fdr="0"
-            data-jfk="1"
-            data-lincoln="1"
-            data-teddy="3"
-          >
-          <span>An outdoor adventure where someone definitely packed a compass and a questionable amount of enthusiasm.</span>
-        </label>
-        <button type="submit">Calculate My Presidential Chemistry</button>
-      </form>
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q1"
+          value="haunted"
+          data-fdr="0"
+          data-jfk="0"
+          data-lincoln="3"
+          data-teddy="1"
+        >
+        <span>A long walk with deep conversation and slightly haunted vibes.</span>
+      </label>
+
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q1"
+          value="adventure"
+          data-fdr="0"
+          data-jfk="1"
+          data-lincoln="1"
+          data-teddy="3"
+        >
+        <span>An outdoor adventure where someone definitely packed a compass and a questionable amount of enthusiasm.</span>
+      </label>
     </section>
+
+
+    <section class="quiz-card">
+      <h2>Question 2</h2>
+      <p class="question-text">Your ideal partner handles a crisis by...</p>
+
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q2"
+          value="reassure"
+          data-fdr="3"
+          data-jfk="1"
+          data-lincoln="1"
+          data-teddy="0"
+        >
+        <span>Calmly reassuring everyone while rolling out a huge plan.</span>
+      </label>
+
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q2"
+          value="camera"
+          data-fdr="1"
+          data-jfk="3"
+          data-lincoln="0"
+          data-teddy="1"
+        >
+        <span>Looking impossibly calm on camera while everything is probably on fire.</span>
+      </label>
+
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q2"
+          value="reflect"
+          data-fdr="1"
+          data-jfk="0"
+          data-lincoln="3"
+          data-teddy="1"
+        >
+        <span>Thinking deeply, speaking carefully, and carrying the emotional weight of the room.</span>
+      </label>
+
+      <label class="answer-card">
+        <input 
+          type="radio" 
+          name="q2"
+          value="charge"
+          data-fdr="0"
+          data-jfk="1"
+          data-lincoln="1"
+          data-teddy="3"
+        >
+        <span>Charging directly at the problem with alarming confidence.</span>
+      </label>
+    </section>
+
 
     <section class="results-card">
-      <h2>Test Results</h2>
-        <button type="submit">Calculate My Presidential Chemistry</button>
+      <h2>Ready for your result?</h2>
+      <p>Submit your answers to find your executive-branch soulmate.</p>
+
+      <button type="submit">Calculate My Presidential Chemistry</button>
     </section>
-  </main>
+
+  </form>
+</main>
 
   <script src="script.js"></script>
 </body>
