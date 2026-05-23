@@ -5,19 +5,28 @@ const quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const selectedAnswer = document.querySelector('input[name="q1"]:checked');
-
-  if (selectedAnswer === null) {
-    alert("Please pick an answer before submitting.");
-    return;
-  }
+  const totalQuestions = 2;
 
   const scores = {
-    fdr: Number(selectedAnswer.getAttribute("data-fdr")),
-    jfk: Number(selectedAnswer.getAttribute("data-jfk")),
-    lincoln: Number(selectedAnswer.getAttribute("data-lincoln")),
-    teddy: Number(selectedAnswer.getAttribute("data-teddy"))
+    fdr: 0,
+    jfk: 0,
+    lincoln: 0,
+    teddy: 0
   };
+
+  for (let questionNumber = 1; questionNumber <= totalQuestions; questionNumber++) {
+    const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+
+    if (selectedAnswer === null) {
+      alert(`Please answer Question ${questionNumber} before submitting.`);
+      return;
+    }
+
+    scores.fdr += Number(selectedAnswer.getAttribute("data-fdr"));
+    scores.jfk += Number(selectedAnswer.getAttribute("data-jfk"));
+    scores.lincoln += Number(selectedAnswer.getAttribute("data-lincoln"));
+    scores.teddy += Number(selectedAnswer.getAttribute("data-teddy"));
+  }
 
   const winnerKey = getWinner(scores);
 
