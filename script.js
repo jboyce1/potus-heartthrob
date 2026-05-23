@@ -1,14 +1,6 @@
 console.log("script.js loaded");
 
 const quizForm = document.getElementById("quiz-form");
-const resultsOutput = document.getElementById("results-output");
-
-const presidentNames = {
-  fdr: "Franklin D. Roosevelt",
-  jfk: "John F. Kennedy",
-  lincoln: "Abraham Lincoln",
-  teddy: "Theodore Roosevelt"
-};
 
 quizForm.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -16,7 +8,7 @@ quizForm.addEventListener("submit", function(event) {
   const selectedAnswer = document.querySelector('input[name="q1"]:checked');
 
   if (selectedAnswer === null) {
-    resultsOutput.textContent = "Please pick an answer before submitting.";
+    alert("Please pick an answer before submitting.");
     return;
   }
 
@@ -29,17 +21,14 @@ quizForm.addEventListener("submit", function(event) {
 
   const winnerKey = getWinner(scores);
 
-  resultsOutput.innerHTML = `
-    <p><strong>Scores:</strong></p>
-    <ul>
-      <li>Franklin D. Roosevelt: ${scores.fdr}</li>
-      <li>John F. Kennedy: ${scores.jfk}</li>
-      <li>Abraham Lincoln: ${scores.lincoln}</li>
-      <li>Theodore Roosevelt: ${scores.teddy}</li>
-    </ul>
+  const resultPages = {
+    fdr: "results/fdr.html",
+    jfk: "results/jfk.html",
+    lincoln: "results/lincoln.html",
+    teddy: "results/teddy.html"
+  };
 
-    <p><strong>Current winner:</strong> ${presidentNames[winnerKey]}</p>
-  `;
+  window.location.href = resultPages[winnerKey];
 });
 
 function getWinner(scores) {
