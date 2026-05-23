@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 const quizForm = document.getElementById("quiz-form");
 const resultsOutput = document.getElementById("results-output");
 
@@ -13,27 +15,30 @@ quizForm.addEventListener("submit", function(event) {
 
   const selectedAnswer = document.querySelector('input[name="q1"]:checked');
 
-  if (!selectedAnswer) {
+  if (selectedAnswer === null) {
     resultsOutput.textContent = "Please pick an answer before submitting.";
     return;
   }
 
   const scores = {
-    fdr: Number(selectedAnswer.dataset.fdr),
-    jfk: Number(selectedAnswer.dataset.jfk),
-    lincoln: Number(selectedAnswer.dataset.lincoln),
-    teddy: Number(selectedAnswer.dataset.teddy)
+    fdr: Number(selectedAnswer.getAttribute("data-fdr")),
+    jfk: Number(selectedAnswer.getAttribute("data-jfk")),
+    lincoln: Number(selectedAnswer.getAttribute("data-lincoln")),
+    teddy: Number(selectedAnswer.getAttribute("data-teddy"))
   };
 
-  const winner = getWinner(scores);
+  const winnerKey = getWinner(scores);
 
   resultsOutput.innerHTML = `
-    <strong>Scores:</strong><br>
-    FDR: ${scores.fdr}<br>
-    JFK: ${scores.jfk}<br>
-    Lincoln: ${scores.lincoln}<br>
-    Teddy Roosevelt: ${scores.teddy}<br><br>
-    <strong>Current winner:</strong> ${presidentNames[winner]}
+    <p><strong>Scores:</strong></p>
+    <ul>
+      <li>Franklin D. Roosevelt: ${scores.fdr}</li>
+      <li>John F. Kennedy: ${scores.jfk}</li>
+      <li>Abraham Lincoln: ${scores.lincoln}</li>
+      <li>Theodore Roosevelt: ${scores.teddy}</li>
+    </ul>
+
+    <p><strong>Current winner:</strong> ${presidentNames[winnerKey]}</p>
   `;
 });
 
@@ -49,9 +54,4 @@ function getWinner(scores) {
   }
 
   return winner;
-}console.log("POTUS Heartthrob script loaded.");
-
-function testButton() {
-  const output = document.getElementById("js-test-output");
-  output.textContent = "JavaScript is working. The republic is emotionally available.";
 }
